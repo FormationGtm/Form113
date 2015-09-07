@@ -1,31 +1,45 @@
 ﻿@model List<DataLayer.Commande>
+<table class="table">
+    <tr>
+        <td>Nom</td>
+        <td>Prenom</td>
+        <td>Date commande</td>
+        <td>Age Commande</td>
+        <td>Somme Commande €</td>
+        <td>Status</td>
+        <td></td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <text>
 
-@foreach(var item in Model)
-{
-    <text><tr>
-        <td>
-            <font color="red">@item.Nom</font>
-        </td>
-        <td>
-            <font color="red"> @item.Prenom</font>
-        </td>
-        <td>
-            <font color="red"> @item.OrderDate</font>
-        </td>
-        <td>
-            <font color="red"> @item.OrderAge</font>
-        </td>
-        <td>
-            <font color="red"> @item.TotalCommande</font>
-        </td>
-        <td>
-            <font color="red"> @item.CommandeStatus</font>
-        </td>
-        <td>
-            <font color="red">
-                @Html.ActionLink("Gerer", "Edit", new { id = item.IdCommande })
-                @Html.ActionLink("Supprimer", "Delete", new { id = item.IdCommande })
-            </font>
-        </td>
-    </tr> </text>
-}
+            <tr>
+                <td>
+                    <font color="red">@item.Nom</font>
+                </td>
+                <td>
+                    <font color="red"> @item.Prenom</font>
+                </td>
+                <td>
+                    <font color="red"> @item.OrderDate</font>
+                </td>
+                <td>
+                    <font color="red"> @item.OrderAge</font>
+                </td>
+                <td>
+                    <font color="red"> @item.TotalCommande</font>
+                </td>
+                <td>
+                    <font color="red"> @item.CommandeStatus</font>
+                </td>
+                <td>
+                    <font color="red">
+                        @Html.ActionLink("Gerer", "Edit", new { id = item.IdCommande })
+                        <br />
+                        @Html.ActionLink("Supprimer", "Delete", new { id = item.IdCommande })
+                    </font>
+                </td>
+            </tr>
+            </text>
+            }
+        </table>
