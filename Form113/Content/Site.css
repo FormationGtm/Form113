@@ -27,56 +27,59 @@ table {
     width: 100%;
 }
 
-.MonAffichageImage
-{    
-    width:100%;
-    height:100%;
+.MonAffichageImage {
+    width: 100%;
+    height: 100%;
 }
 
-.MonAffichageImage25
-{    
+.MonAffichageImage25 {
     width: 90px;
-    height:25%;
+    height: 25%;
 }
 
-.notclick{
+.notclick {
     pointer-events: none;
 }
 
-.TexteAreaPerso 
-{
-    width:100%;
-    height:120px;
+.TexteAreaPerso {
+    width: 100%;
+    height: 120px;
 }
 
 
 .panel-info-Perso1 {
-  border-color: #bce8f1;
+    border-color: #bce8f1;
 }
 
-.panel-info-Perso1 > .panel-heading {
-  color: #31708f;
-  background-color: #d9edf7;
-  border-color: #bce8f1;
-}
+    .panel-info-Perso1 > .panel-heading {
+        color: #31708f;
+        background-color: #d9edf7;
+        border-color: #bce8f1;
+    }
 
 .panel-info-Perso2 {
-  border-color: #31708f;
+    border-color: #31708f;
 }
 
-.panel-info-Perso2 > .panel-heading {
-  color: #bce8f1;
-  background-color: #31708f;
-  border-color: #bcf8f1;
+    .panel-info-Perso2 > .panel-heading {
+        color: #bce8f1;
+        background-color: #31708f;
+        border-color: #bcf8f1;
+    }
+
+.MyCarousel {
+    width: 30%;
 }
 
-.MyCarousel
-{
-    width:30%;
+.tictactoe {
+    width: 150px;
+    height: 150px;
 }
 
-.tictactoe
-{
-    width:150px;
-    height:150px;
+.CategorieAffichage {
+    height: 200px;
+}
+
+.CategorieAffichageImage {
+    height: 100px;
 }

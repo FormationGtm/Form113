@@ -273,6 +273,14 @@
           <Property Name="NomTri" Type="nvarchar" MaxLength="200" />
           <Property Name="Prefixe" Type="char" MaxLength="3" />
         </EntityType>
+        <EntityType Name="Visibiliter">
+          <Key>
+            <PropertyRef Name="IdVisibiliter" />
+          </Key>
+          <Property Name="IdVisibiliter" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProduitRef" Type="int" Nullable="false" />
+          <Property Name="DateVis" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
         <EntityType Name="ZipCodes">
           <Key>
             <PropertyRef Name="CodePostal" />
@@ -555,6 +563,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="fk_visibiliter_produit">
+          <End Role="Produits" Type="Self.Produits" Multiplicity="1" />
+          <End Role="Visibiliter" Type="Self.Visibiliter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produits">
+              <PropertyRef Name="IdProduit" />
+            </Principal>
+            <Dependent Role="Visibiliter">
+              <PropertyRef Name="ProduitRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_zipcodes_villes">
           <End Role="Villes" Type="Self.Villes" Multiplicity="1" />
           <End Role="ZipCodes" Type="Self.ZipCodes" Multiplicity="*" />
@@ -618,6 +638,7 @@
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Utilisateurs" EntityType="Self.Utilisateurs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Villes" EntityType="Self.Villes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Visibiliter" EntityType="Self.Visibiliter" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ZipCodes" EntityType="Self.ZipCodes" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="fk_administrateurs_identites" Association="Self.fk_administrateurs_identites">
             <End Role="Identites" EntitySet="Identites" />
@@ -706,6 +727,10 @@
           <AssociationSet Name="fk_villesbis_departements" Association="Self.fk_villesbis_departements">
             <End Role="Departements" EntitySet="Departements" />
             <End Role="Villes" EntitySet="Villes" />
+          </AssociationSet>
+          <AssociationSet Name="fk_visibiliter_produit" Association="Self.fk_visibiliter_produit">
+            <End Role="Produits" EntitySet="Produits" />
+            <End Role="Visibiliter" EntitySet="Visibiliter" />
           </AssociationSet>
           <AssociationSet Name="fk_zipcodes_villes" Association="Self.fk_zipcodes_villes">
             <End Role="Villes" EntitySet="Villes" />
@@ -927,6 +952,7 @@
           <NavigationProperty Name="Photos" Relationship="Self.fk_photos_produits" FromRole="Produits" ToRole="Photos" />
           <NavigationProperty Name="SousCategories" Relationship="Self.FK_Produits_SousCategorie" FromRole="Produits" ToRole="SousCategories" />
           <NavigationProperty Name="Commentaire" Relationship="BestArtModel.fk_Commentaire_Produit" FromRole="Produits" ToRole="Commentaire" />
+          <NavigationProperty Name="Visibiliter" Relationship="BestArtModel.fk_visibiliter_produit" FromRole="Produits" ToRole="Visibiliter" />
         </EntityType>
         <EntityType Name="Regions">
           <Key>
@@ -1397,6 +1423,11 @@
             <End Role="Utilisateurs" EntitySet="Utilisateurs" />
             <End Role="Commentaire" EntitySet="Commentaire" />
           </AssociationSet>
+          <EntitySet Name="Visibiliter" EntityType="BestArtModel.Visibiliter" />
+          <AssociationSet Name="fk_visibiliter_produit" Association="BestArtModel.fk_visibiliter_produit">
+            <End Role="Produits" EntitySet="Produits" />
+            <End Role="Visibiliter" EntitySet="Visibiliter" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Commentaire">
           <Key>
@@ -1447,6 +1478,27 @@
             </Principal>
             <Dependent Role="Commentaire">
               <PropertyRef Name="UserRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Visibiliter">
+          <Key>
+            <PropertyRef Name="IdVisibiliter" />
+          </Key>
+          <Property Name="IdVisibiliter" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProduitRef" Type="Int32" Nullable="false" />
+          <Property Name="DateVis" Type="DateTime" Nullable="false" Precision="7" />
+          <NavigationProperty Name="Produits" Relationship="BestArtModel.fk_visibiliter_produit" FromRole="Visibiliter" ToRole="Produits" />
+        </EntityType>
+        <Association Name="fk_visibiliter_produit">
+          <End Type="BestArtModel.Produits" Role="Produits" Multiplicity="1" />
+          <End Type="BestArtModel.Visibiliter" Role="Visibiliter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produits">
+              <PropertyRef Name="IdProduit" />
+            </Principal>
+            <Dependent Role="Visibiliter">
+              <PropertyRef Name="ProduitRef" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1750,6 +1802,15 @@
                 <ScalarProperty Name="CommRef" ColumnName="CommRef" />
                 <ScalarProperty Name="ProduitRef" ColumnName="ProduitRef" />
                 <ScalarProperty Name="IdCommentaire" ColumnName="IdCommentaire" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Visibiliter">
+            <EntityTypeMapping TypeName="BestArtModel.Visibiliter">
+              <MappingFragment StoreEntitySet="Visibiliter">
+                <ScalarProperty Name="DateVis" ColumnName="DateVis" />
+                <ScalarProperty Name="ProduitRef" ColumnName="ProduitRef" />
+                <ScalarProperty Name="IdVisibiliter" ColumnName="IdVisibiliter" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -140,6 +140,9 @@
     <Compile Include="Models\Villes.cs">
       <DependentUpon>BestArt.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Visibiliter.cs">
+      <DependentUpon>BestArt.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ZipCodes.cs">
       <DependentUpon>BestArt.tt</DependentUpon>
     </Compile>

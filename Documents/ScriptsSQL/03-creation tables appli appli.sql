@@ -12,6 +12,8 @@ if exists (select * from sysobjects where name = 'Photos' and type = 'U')
 	drop table Photos;
 if exists (select * from sysobjects where name = 'Utilisateurs' and type = 'U')
 	drop table Utilisateurs;
+if exists (select * from sysobjects where name = 'Visibiliter' and type = 'U')
+	drop table Visibiliter;
 if exists (select * from sysobjects where name = 'Produits' and type = 'U')
 	drop table Produits;
 if exists (select * from sysobjects where name = 'SousCategories' and type = 'U')
@@ -290,6 +292,17 @@ CREATE TABLE [dbo].[Commentaire](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
+CREATE TABLE [dbo].[Visibiliter](
+	[IdVisibiliter] [int] IDENTITY(1,1) NOT NULL,
+	[ProduitRef] [int] NOT NULL,
+	[DateVis] [datetime2](7) NOT NULL,
+	CONSTRAINT [PK_Visibiliter] PRIMARY KEY CLUSTERED 
+	(
+	[IdVisibiliter] ASC
+	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)
+
+
 GO
 insert StatusCommande (IdStatusCommande,StatusCommande)
 values (1,'Commandé')
@@ -423,6 +436,9 @@ values(1,1,null,1,'commentaire numero 1',1,GETDATE()),(2,1,null,2,'commentaire n
 SET IDENTITY_INSERT [dbo].[Commentaire] OFF
 GO
 
+GO
+ALTER TABLE [dbo].[Visibiliter]  WITH CHECK ADD  CONSTRAINT [fk_visibiliter_produit] FOREIGN KEY([ProduitRef])
+REFERENCES [dbo].[Produits] ([IdProduit])
 GO
 ALTER TABLE [dbo].[Administrateurs]  WITH CHECK ADD  CONSTRAINT [fk_administrateurs_identites] FOREIGN KEY([IdAdministrateur])
 REFERENCES [dbo].[Identites] ([IdIdentite])

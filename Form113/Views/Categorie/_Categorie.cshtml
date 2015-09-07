@@ -3,11 +3,11 @@
 @model Categories
 
 
-<div class="panel">
+<div class="panel CategorieAffichage">
     <h3>@Model.Libelle</h3>
     <div class="panel-body">
         <a href="/Catalogue/IndexSousCategories/@Model.IdCategorie" class="fill-div">
-            <div id="CategorieImg">@Html.ImageHelp(Model.Photo)</div>
+            <div id="CategorieImg" class="CategorieAffichageImage">@Html.ImageHelp(Model.Photo)</div>
         </a>
     </div>
 </div>

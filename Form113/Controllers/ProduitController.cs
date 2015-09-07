@@ -185,7 +185,13 @@ namespace Form113.Controllers
         public ActionResult Detail(int id)
         {
             var P = db.Produits.Where(p => p.IdProduit == id).FirstOrDefault();
-            P.NbVues++;
+
+            var NewVue = new Visibiliter()
+            {
+                DateVis = DateTime.Now,
+            };
+            P.Visibiliter.Add(NewVue);
+            //P.NbVues = db.Visibiliter.Where(v => v.ProduitRef == P.IdProduit).Count();
             P.Commentaire.OrderBy(c => c.Num);
             db.SaveChanges();
             return View(P);

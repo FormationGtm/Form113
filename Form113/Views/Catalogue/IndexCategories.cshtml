@@ -18,17 +18,18 @@
 
 <body>
     <div>
-        <ul class="rig columns-3">
+        <ul class="rig columns-2">
             @foreach (var cat in @Model)
             {
                 @*<div class="col-lg-4">
                         @Html.Action("Categorie", "Categorie", new { id = cat })
                     </div>*@
-                
-                    <li>@Html.Action("Categorie", "Categorie", new { id = cat })
-                        
-</li>
-                
+
+                <li>
+                    @Html.Action("Categorie", "Categorie", new { id = cat })
+
+            </li>
+
             }
         </ul>
         <div class="col-lg-4">

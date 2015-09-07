@@ -55,6 +55,8 @@
         <AssociationConnector Association="BestArtModel.fk_Commentaire_Commentaire" />
         <AssociationConnector Association="BestArtModel.fk_Commentaire_Produit" />
         <AssociationConnector Association="BestArtModel.fk_Commentaire_User" />
+        <EntityTypeShape EntityType="BestArtModel.Visibiliter" Width="1.5" PointX="7.5" PointY="35.875" />
+        <AssociationConnector Association="BestArtModel.fk_visibiliter_produit" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
