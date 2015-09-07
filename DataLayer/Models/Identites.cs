@@ -25,6 +25,7 @@ namespace DataLayer.Models
         public string Identifiant { get; set; }
         public string Password { get; set; }
         public string Email { get; set; }
+        public Nullable<byte> Newsletter { get; set; }
     
         public virtual Administrateurs Administrateurs { get; set; }
         public virtual ICollection<Utilisateurs> Utilisateurs { get; set; }

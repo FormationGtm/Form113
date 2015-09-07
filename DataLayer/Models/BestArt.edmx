@@ -150,6 +150,7 @@
           <Property Name="Identifiant" Type="char" MaxLength="10" />
           <Property Name="Password" Type="char" MaxLength="10" />
           <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Newsletter" Type="tinyint" />
         </EntityType>
         <EntityType Name="Marketing">
           <Key>
@@ -895,6 +896,7 @@
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Administrateurs" Relationship="Self.fk_administrateurs_identites" FromRole="Identites" ToRole="Administrateurs" />
           <NavigationProperty Name="Utilisateurs" Relationship="Self.fk_utilisateurs_identites" FromRole="Identites" ToRole="Utilisateurs" />
+          <Property Name="Newsletter" Type="Byte" />
         </EntityType>
         <EntityType Name="Marketing">
           <Key>
@@ -1634,6 +1636,7 @@
           <EntitySetMapping Name="Identites">
             <EntityTypeMapping TypeName="BestArtModel.Identites">
               <MappingFragment StoreEntitySet="Identites">
+                <ScalarProperty Name="Newsletter" ColumnName="Newsletter" />
                 <ScalarProperty Name="IdIdentite" ColumnName="IdIdentite" />
                 <ScalarProperty Name="Nom" ColumnName="Nom" />
                 <ScalarProperty Name="Prenom" ColumnName="Prenom" />
