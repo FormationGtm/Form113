@@ -110,6 +110,7 @@ CREATE TABLE [dbo].[Identites](
 	[Identifiant] [char](10) NULL,
 	[Password] [char](10) NULL,
 	[Email] [nvarchar](50) NULL,
+	[Newsletter] [tinyint] NULL,
  CONSTRAINT [Pk_Utilisateur_0] PRIMARY KEY CLUSTERED 
 (
 	[IdIdentite] ASC

@@ -179,6 +179,7 @@
     <Compile Include="Controllers\JsonController.cs" />
     <Compile Include="Controllers\LocalisationController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\NewsLetterController.cs" />
     <Compile Include="Controllers\PanierController.cs" />
     <Compile Include="Controllers\ProduitController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
@@ -355,6 +356,7 @@
     <Content Include="Views\Produit\_ProduitsEnPromo.cshtml" />
     <Content Include="Views\Produit\_ProduitPromo.cshtml" />
     <Content Include="Views\Produit\_CommentaireProduit.cshtml" />
+    <Content Include="Views\NewsLetter\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -367,7 +369,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\User\Models\" />
     <Folder Include="Areas\User\Views\Shared\" />
     <Folder Include="Scripts\Search\css\" />
