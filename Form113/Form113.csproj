@@ -208,6 +208,7 @@
     <Compile Include="Models\CommentaireViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\NewsLettersViewModel.cs" />
     <Compile Include="Models\PanierViewModels.cs" />
     <Compile Include="Models\ResultViewModels.cs" />
     <Compile Include="Models\SearchViewModel.cs" />

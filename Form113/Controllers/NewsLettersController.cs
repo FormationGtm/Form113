@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace Form113.Controllers
 {
-    public class NewsLettersController : Controller
+    public class NewsLettersController : BestArtController
     {
 
         BestArtEntities db = new BestArtEntities();
@@ -15,31 +15,33 @@ namespace Form113.Controllers
         // GET: NewsLetter
         public ActionResult Index()
         {
-            return View();
+            
+            var newsletter = new Form113.Models.NewsLettersViewModel();
+            newsletter.Message = "Pas d'action possible";
+            return View(newsletter);
         }
-        public ActionResult Index(string msg)
-        {
-            return View(msg);
-        }
+       
 
         public ActionResult Delete(string id)
         {
-        //    var identities = db.Identites.Where(x => x.Email == id);
-        //    if (identities.Count() == 1)
-        //    {
-        //        identities.First().Newsletter = 0;
-        //        db.Entry(identities).State = System.Data.Entity.EntityState.Modified;
-        //        db.SaveChanges();
-        //        return RedirectToAction("Index", "Changement réussi");
-        //    }
-        //    if (identities.Count()>1)
-        //    {
-        //        return RedirectToAction("Index", "Email non trouve contacter l'administrateur");
-        //    }
-        //    return RedirectToAction("Index", "L'email specifie ne correspond a aucun email dans notre base de donnée");
-
-
-             return RedirectToAction("Index", "L'email specifie ne correspond a aucun email dans notre base de donnée");
+            var newsletter = new Form113.Models.NewsLettersViewModel();
+            var identities = db.Identites.Where(x => x.Email == id);
+            if (identities.Count() == 1)
+            {
+                identities.First().Newsletter = 0;
+                db.Entry(identities).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+               newsletter.Message="Changement réussi";
+            }
+            else if (identities.Count() > 1)
+            {
+                newsletter.Message="Email non trouve contacter l'administrateur";
+            }
+            else { newsletter.Message="L'email specifie ne correspond a aucun email dans notre base de donnée"; }
+            
+            
+            
+            return View("Index", newsletter);
         }
     }
 
