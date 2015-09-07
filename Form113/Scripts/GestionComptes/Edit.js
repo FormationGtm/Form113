@@ -1,5 +1,4 @@
 ﻿$(function () {
-    ListeDesVilles()
     $("#ListeDepartements").change(ListeDesVilles);
     ChosenFinish();
 });

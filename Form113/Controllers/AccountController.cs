@@ -201,8 +201,59 @@ namespace Form113.Controllers
                r => r.Departements.OrderBy(d => d.Nom)
                    .ToDictionary(d => d.NumDep, d => d.Nom)
                    );
-            
             return View(rvm);
+        }
+
+
+        [HttpPost]
+        public ActionResult Edit(EditViewModel evm)
+        {
+            var user = db.Utilisateurs.Where(u => u.Identites.Email == evm.Email).First();
+            user.Identites.Nom = evm.Nom;
+            user.Identites.Prenom = evm.Prenom;
+            user.Adresses.CodeINSEE = evm.CodeVille;
+            user.Adresses.Ligne1 = evm.Adresse1;
+            user.Adresses.Ligne2 = evm.Adresse2;
+            user.Adresses.Ligne3 = evm.Adresse3;
+            user.Adresses.CodePostal = db.ZipCodes.Where(z => z.CodeINSEE == evm.CodeVille).First().CodePostal;
+            db.SaveChanges();
+            return RedirectToAction("Index", "Home");
+        }
+
+        public ActionResult Edit(string email)
+        {
+            //if (id == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
+            //AspNetUsers utilisateurs = db.Utilisateurs.Find(id);
+            //if (utilisateurs == null)
+            //{
+            //    return HttpNotFound();
+            //}
+            //ViewBag.IdAdresse = new SelectList(db.Adresses, "IdAdresse", "Ligne1", utilisateurs.IdAdresse);
+            //ViewBag.IdAsp = new SelectList(db.AspNetUsers, "Id", "Email", utilisateurs.IdAsp);
+            //ViewBag.IdIdentite = new SelectList(db.Identites, "IdIdentite", "Nom", utilisateurs.IdIdentite);
+            //return View(utilisateurs);
+            Utilisateurs user = db.Utilisateurs.Where(u => u.AspNetUsers.Email == email).First();
+            var bci = new BreadCrumItem("Modification de profil", "", "");
+            ListeBreadCrumItem.Add(bci);
+            EditViewModel evm = new EditViewModel();
+            evm.Adresse1 = user.Adresses.Ligne1;
+            evm.Adresse2 = user.Adresses.Ligne2;
+            evm.Adresse3 = user.Adresses.Ligne3;
+            evm.CodeVille = db.Villes.Where(v => v.CodeINSEE == user.Adresses.CodeINSEE).First().CodeINSEE;
+            evm.Email = user.AspNetUsers.Email;
+            evm.Nom = user.Identites.Nom;
+            evm.iddep = db.Villes.Where(v => v.CodeINSEE == user.Adresses.CodeINSEE).First().NumDep;
+            evm.Prenom = user.Identites.Prenom;
+            evm.RegionsDepartements = db.RegionsFR.OrderBy(r => r.Nom)
+               .ToDictionary(r => r.Nom,
+               r => r.Departements.OrderBy(d => d.Nom)
+                   .ToDictionary(d => d.NumDep, d => d.Nom)
+                   );
+            evm.VillesDep = db.Villes.Where(v => v.NumDep == evm.iddep).ToDictionary(v => v.CodeINSEE,v => v.Nom);
+            return View(evm);
         }
 
         //

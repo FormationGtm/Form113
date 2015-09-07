@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -167,8 +167,6 @@
     <Compile Include="Areas\Admin\Controllers\NewsletterController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProduitsController.cs" />
     <Compile Include="Areas\Admin\Controllers\SousCategoriesController.cs" />
-    <Compile Include="Areas\User\Controllers\UtilisateursController.cs" />
-    <Compile Include="Areas\User\UserAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Models\newsLetterViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BestArtController.cs" />
@@ -258,12 +256,7 @@
     <Content Include="Areas\Admin\Views\Commandes\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Commandes\_Adresse.cshtml" />
     <Content Include="Areas\Admin\Views\Marketing\_SellsInHurry.cshtml" />
-    <Content Include="Areas\User\Views\web.config" />
-    <Content Include="Areas\User\Views\Utilisateurs\Create.cshtml" />
-    <Content Include="Areas\User\Views\Utilisateurs\Delete.cshtml" />
-    <Content Include="Areas\User\Views\Utilisateurs\Details.cshtml" />
-    <Content Include="Areas\User\Views\Utilisateurs\Edit.cshtml" />
-    <Content Include="Areas\User\Views\Utilisateurs\Index.cshtml" />
+    <Content Include="Views\Account\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Newsletter\Index.cshtml" />
     <None Include="Properties\PublishProfiles\Form113.pubxml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
@@ -369,8 +362,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Areas\User\Models\" />
-    <Folder Include="Areas\User\Views\Shared\" />
     <Folder Include="Scripts\Search\css\" />
     <Folder Include="Uploads\" />
     <Folder Include="Views\Json\" />
