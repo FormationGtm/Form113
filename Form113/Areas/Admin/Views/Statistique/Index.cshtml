@@ -3,6 +3,42 @@
 }
 
 <div id="graph"></div>
+<label for="min">Année min</label>
+<select id="min">
+    @{
+        int min = int.Parse(ViewBag.min.ToString("yyyy"));
+        int max = int.Parse(ViewBag.max.ToString("yyyy"));
+
+        for (int i = min; i <= max; i++)
+        {
+            if (i == min)
+            {
+                <option selected value="@i">@i</option>
+            }
+            else
+            {
+                <option value="@i">@i</option>
+            }
+        }
+    }
+</select>
+<label for="max" class="FiltreAnnuel">Année max</label>
+<select id="max">
+    @{
+        for (int i = min; i <= max; i++)
+        {
+            if (i == max)
+            {
+                <option selected value="@i">@i</option>
+            }
+            else
+            {
+                <option value="@i">@i</option>
+            }
+        }
+    }
+</select>
+
 
 @section styles {
     <link href="~/Areas/Admin/Scripts/Satistique/css/Satistique.css" rel="stylesheet" />
