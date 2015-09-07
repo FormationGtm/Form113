@@ -162,17 +162,22 @@ namespace Form113.Models
         /// </summary>
         public Dictionary<string, Dictionary<string, string>> RegionsDepartements { get; set; }
 
+        /// <summary>
+        /// pour stocker les données villes à fournir aux listes déroulantes
+        /// </summary>
+        public Dictionary<string,string> VillesDep { get; set; }
+
 
         /// <summary>
         /// Pour afficher le département enregistré lors du formulaire d'édition de compte
         /// </summary>
         public string iddep { get; set; }
 
-
         /// <summary>
         /// code insee de la ville
         /// </summary>
         public string CodeVille { get; set; }
+
         [DisplayName("numero de voie :")]
         public string Adresse1 { get; set; }
 
