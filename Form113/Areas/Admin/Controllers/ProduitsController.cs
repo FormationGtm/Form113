@@ -120,6 +120,11 @@ namespace Form113.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                // Etude de la promotion =>
+                if(produits.Promotion>1)
+                {
+                    produits.Promotion = 1 - produits.Promotion / 100;
+                }
                 db.Entry(produits).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

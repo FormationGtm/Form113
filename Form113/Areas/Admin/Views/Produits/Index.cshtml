@@ -60,7 +60,9 @@
             @Html.DisplayFor(modelItem => item.DateMiseEnVente)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Promotion)
+            @*@Html.DisplayFor(modelItem => item.Promotion)*@
+           <p>@((1-item.Promotion)*100) %</p>
+          
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Stock)
