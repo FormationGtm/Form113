@@ -61,6 +61,41 @@ namespace Form113.Controllers
             return View();
         }
 
+        // GET: User/Utilisateurs/Edit/5
+        public ActionResult Edit(string email)
+        {
+            //if (id == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
+            //AspNetUsers utilisateurs = db.Utilisateurs.Find(id);
+            //if (utilisateurs == null)
+            //{
+            //    return HttpNotFound();
+            //}
+            //ViewBag.IdAdresse = new SelectList(db.Adresses, "IdAdresse", "Ligne1", utilisateurs.IdAdresse);
+            //ViewBag.IdAsp = new SelectList(db.AspNetUsers, "Id", "Email", utilisateurs.IdAsp);
+            //ViewBag.IdIdentite = new SelectList(db.Identites, "IdIdentite", "Nom", utilisateurs.IdIdentite);
+            //return View(utilisateurs);
+            Utilisateurs user = db.Utilisateurs.Where(u => u.AspNetUsers.Email == email).First();
+            var bci = new BreadCrumItem("Modification de profil", "", "");
+            ListeBreadCrumItem.Add(bci);
+            EditViewModel evm = new EditViewModel();
+            evm.Adresse1 = user.Adresses.Ligne1;
+            evm.Adresse2 = user.Adresses.Ligne2;
+            evm.Adresse3 = user.Adresses.Ligne3;
+            evm.CodeVille = db.Villes.Where(v => v.CodeINSEE == user.Adresses.CodeINSEE).First().Nom;
+            evm.Email = user.AspNetUsers.Email;
+            evm.Nom = user.Identites.Nom;
+            evm.iddep = db.Villes.Where(v => v.CodeINSEE == user.Adresses.CodeINSEE).First().NumDep;
+            evm.Prenom = user.Identites.Prenom;
+            evm.RegionsDepartements = db.RegionsFR.OrderBy(r => r.Nom)
+               .ToDictionary(r => r.Nom,
+               r => r.Departements.OrderBy(d => d.Nom)
+                   .ToDictionary(d => d.NumDep, d => d.Nom)
+                   );
+            return View(evm);
+        }
         //
         // POST: /Account/Login
         [HttpPost]
@@ -136,6 +171,10 @@ namespace Form113.Controllers
 
         //
         // GET: /Account/Register
+        /// <summary>
+        /// Action renvoyant vers la vue Register.cshtml (enregistrement de nouvel utilisateur) et lui fournissant via un RegisterViewModel des données pour afficher la liste déroulante des départements.
+        /// </summary>
+        /// <returns></returns>
         [AllowAnonymous]
         public ActionResult Register()
         {
@@ -152,6 +191,11 @@ namespace Form113.Controllers
 
         //
         // POST: /Account/Register
+        /// <summary>
+        /// Action d'enregistrement d'utilisateur en provenance de la vue Register.cshtml. Reçoit les données du formulaire, crée un utilisateur et l'enregistre en base de données.
+        /// </summary>
+        /// <param name="model">données du formulaire de type RegisterViewModel</param>
+        /// <returns></returns>
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]

@@ -436,6 +436,7 @@
     <Content Include="Views\Produit\_ProduitPromo.cshtml" />
     <Content Include="Views\Produit\_CommentaireProduit.cshtml" />
     <Content Include="Views\NewsLetters\Index.cshtml" />
+    <Content Include="Views\Account\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
