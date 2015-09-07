@@ -1,0 +1,67 @@
+﻿@model Form113.Models.EditViewModel
+@using Form113.Helper
+
+
+<h4>Modification de compte utilisateur</h4>
+
+@using (Html.BeginForm("Edit", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+
+    @Html.MyTextBoxFor(model => model.Nom, 2)
+    @Html.MyTextBoxFor(model => model.Prenom, 2)
+    <input type="text" hidden name="Email" value="@Model.Email" />
+    @*section ajoutée pour les champs adresse*@
+    @Html.MyTextBoxFor(model => model.Adresse1, 2)
+    @Html.MyTextBoxFor(model => model.Adresse2, 2)
+    @Html.MyTextBoxFor(model => model.Adresse3, 2)
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <select id="ListeDepartements" class="chosen-select" name="NumDep">
+                @foreach (var reg in Model.RegionsDepartements.Keys)
+                {
+                    <optgroup label="@reg">
+                        @foreach (var dep in Model.RegionsDepartements[reg])
+                        {
+                            if (dep.Key == Model.iddep)
+                            {
+                                <option value="@dep.Key" selected="selected">@dep.Value</option> }
+                            else
+                            {
+                                <option value="@dep.Key">@dep.Value</option> }
+
+                        }
+                    </optgroup>
+                }
+            </select>
+            <select id="idville" name="CodeVille">
+                @foreach (var ville in Model.VillesDep)
+                {
+                    if (ville.Key == Model.CodeVille)
+                    {
+                        <option value="@ville.Key" selected="selected">@ville.Value</option> }
+                    else
+                    {
+                        <option value="@ville.Key">@ville.Value</option> }
+                }
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Enregistrer les modifications" class="btn btn-default" />
+        </div>
+    </div>
+
+}
+
+
+
+
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/GestionComptes/Edit.js"></script>@*contient la gestion des valeurs affichées par les listes déroulantes pour les départements et villes*@
+    <script src="~/Plugins/Chosen/js/chosen.jquery.min.js"></script>
+}
+@section styles {
+    <link href="//cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.css" rel="stylesheet" />
+}
