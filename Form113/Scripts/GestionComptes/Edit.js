@@ -1,7 +1,8 @@
 ﻿$(function () {
-    ListeDesVilles()
+    ListeDesVilles();
     $("#ListeDepartements").change(ListeDesVilles);
     ChosenFinish();
+    console.log("loaded");
 });
 
 function ListeDesVilles() {
