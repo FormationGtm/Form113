@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -180,7 +180,7 @@
     <Compile Include="Controllers\JsonController.cs" />
     <Compile Include="Controllers\LocalisationController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\NewsLetterController.cs" />
+    <Compile Include="Controllers\NewsLettersController.cs" />
     <Compile Include="Controllers\PanierController.cs" />
     <Compile Include="Controllers\ProduitController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
@@ -434,7 +434,7 @@
     <Content Include="Views\Produit\_ProduitsEnPromo.cshtml" />
     <Content Include="Views\Produit\_ProduitPromo.cshtml" />
     <Content Include="Views\Produit\_CommentaireProduit.cshtml" />
-    <Content Include="Views\NewsLetter\Index.cshtml" />
+    <Content Include="Views\NewsLetters\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
