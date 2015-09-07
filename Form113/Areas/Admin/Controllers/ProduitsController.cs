@@ -16,6 +16,20 @@ namespace Form113.Areas.Admin.Controllers
     {
         private BestArtEntities db = new BestArtEntities();
 
+        public ProduitsController()
+        {
+            InitListeSousCat();
+        }
+
+        private void InitListeSousCat()
+        {
+
+            Dictionary<string, Dictionary<int, string>> DictioSousCat = db.Categories.OrderBy(c => c.Libelle)
+                                                                             .ToDictionary(c => c.Libelle, c => c.SousCategories.OrderBy(sc => sc.Nom)
+                                                                             .ToDictionary(sc => sc.IdSousCategorie, sc => sc.Nom));
+            ViewBag.ListeSousCat = DictioSousCat;
+        }
+
         // GET: Admin/Produits
         public ActionResult Index()
         {
@@ -43,6 +57,7 @@ namespace Form113.Areas.Admin.Controllers
         {
             ViewBag.CodePays = new SelectList(db.Pays, "CodeIso3", "Name");
             ViewBag.IdSousCategorie = new SelectList(db.SousCategories, "IdSousCategorie", "Nom");
+            
             return View();
         }
 
