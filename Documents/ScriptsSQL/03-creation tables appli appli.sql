@@ -414,7 +414,7 @@ SET IDENTITY_INSERT [dbo].[Produits] OFF
 SET IDENTITY_INSERT [dbo].[Photos] ON 
 
 INSERT [dbo].[Photos] ([PhotoName], [IdProduit], [IdPhoto]) VALUES (N'Cacao-roasted.jpg', 1, 1)
-INSERT [dbo].[Photos] ([PhotoName], [IdProduit], [IdPhoto]) VALUES (N'SiliconeValley400_300.jpg', 1, 2)
+INSERT [dbo].[Photos] ([PhotoName], [IdProduit], [IdPhoto]) VALUES (N'CHOCOLAT-CACAO.jpg', 1, 2)
 INSERT [dbo].[Photos] ([PhotoName], [IdProduit], [IdPhoto]) VALUES (N'acp417.jpg', 2, 3)
 INSERT [dbo].[Photos] ([PhotoName], [IdProduit], [IdPhoto]) VALUES (N'clk029.jpg', 3, 4)
 INSERT [dbo].[Photos] ([PhotoName], [IdProduit], [IdPhoto]) VALUES (N'shutterstock_197353127_6.jpg', 3, 5)
