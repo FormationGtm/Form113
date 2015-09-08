@@ -89,10 +89,12 @@ namespace Form113.Models
         /// </summary>
         public Dictionary<string, Dictionary<string, string>> RegionsDepartements { get; set; }
 
+        public string subscribeToNewsletter { get; set; }
 
         /// <summary>
         /// code insee de la ville
         /// </summary>
+        [Required]
         public string CodeVille { get; set; }
         [DisplayName("numero de voie :")]
         public string Adresse1 { get; set; }

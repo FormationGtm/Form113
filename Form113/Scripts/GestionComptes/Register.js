@@ -1,4 +1,5 @@
 ﻿$(function () {
+    console.log("loaded");
     ListeDesVilles();
     $("#ListeDepartements").change(ListeDesVilles);
     ChosenFinish();

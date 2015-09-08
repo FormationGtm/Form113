@@ -241,6 +241,8 @@ namespace Form113.Controllers
                     utilisateur.IdAsp = db.AspNetUsers.Where(u => u.Email == model.Email).FirstOrDefault().Id;
                     utilisateur.DateInscription = DateTime.Now;
                     utilisateur.Identites = identite;
+                    if (model.subscribeToNewsletter!="on")
+                    { identite.Newsletter = 0; }
                     db.Utilisateurs.Add(utilisateur);
                     db.SaveChanges();
                     // Pour plus d'informations sur l'activation de la confirmation du compte et la réinitialisation du mot de passe, consultez http://go.microsoft.com/fwlink/?LinkID=320771

@@ -64,7 +64,9 @@
         </div>
     </div>
     @*autre possibilité : Html.MyDropDownListFor(model=> "idville",null)*@
-
+    <div class="form-group">
+    <label>Abonnez-vous à notre Newsletter ! </label>
+        <input type="checkbox" name="subscribeToNewsletter" checked="checked"></div>
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <button type="submit" class="btn btn-default" >Inscription</button>
@@ -74,7 +76,7 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-    <script src="~/Scripts/Inscription/Register.js"></script>@*contient la gestion des valeurs affichées par les listes déroulantes pour les départements et villes*@
+    <script src="~/Scripts/GestionComptes/Register.js"></script>@*contient la gestion des valeurs affichées par les listes déroulantes pour les départements et villes*@
     <script src="~/Plugins/Chosen/js/chosen.jquery.min.js"></script>
 }
 @section styles {
