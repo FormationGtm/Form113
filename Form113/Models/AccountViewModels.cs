@@ -162,6 +162,7 @@ namespace Form113.Models
         /// </summary>
         public Dictionary<string, Dictionary<string, string>> RegionsDepartements { get; set; }
 
+        public Dictionary<string, string> VillesDep { get; set; }
 
         /// <summary>
         /// Pour afficher le département enregistré lors du formulaire d'édition de compte

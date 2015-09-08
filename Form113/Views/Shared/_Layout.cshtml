@@ -38,7 +38,7 @@
 
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <li>@Html.ActionLink("Gestion du profil", "Edit", new { Controller = "Utilisateurs", Area = "User", email = User.Identity.Name })</li>
+                        <li>@Html.ActionLink("Gestion du profil", "Edit", new { Controller = "Account", email = User.Identity.Name })</li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")
