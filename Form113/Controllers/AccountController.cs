@@ -109,6 +109,10 @@ namespace Form113.Controllers
             adresse.Ligne1 = evm.Adresse1;
             adresse.Ligne2 = evm.Adresse2;
             adresse.Ligne3 = evm.Adresse3;
+            var identite = user.Identites;
+            if (evm.subscribeToNewsletter == "on")
+            { identite.Newsletter = 1; }
+            else identite.Newsletter = 0;
             db.SaveChanges();
             return RedirectToAction("Index", "Home");
         }
@@ -242,8 +246,9 @@ namespace Form113.Controllers
                     utilisateur.IdAsp = db.AspNetUsers.Where(u => u.Email == model.Email).FirstOrDefault().Id;
                     utilisateur.DateInscription = DateTime.Now;
                     utilisateur.Identites = identite;
-                    if (model.subscribeToNewsletter!="on")
-                    { identite.Newsletter = 0; }
+                    if (model.subscribeToNewsletter == "on")
+                    { identite.Newsletter = 1; }
+                    else { identite.Newsletter = 0; }
                     db.Utilisateurs.Add(utilisateur);
                     db.SaveChanges();
                     // Pour plus d'informations sur l'activation de la confirmation du compte et la réinitialisation du mot de passe, consultez http://go.microsoft.com/fwlink/?LinkID=320771
