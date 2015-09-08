@@ -429,6 +429,7 @@
     <Content Include="Views\Produit\_CommentaireProduit.cshtml" />
     <Content Include="Views\NewsLetters\Index.cshtml" />
     <Content Include="Views\Account\Edit.cshtml" />
+    <Content Include="Views\NewsLetters\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
