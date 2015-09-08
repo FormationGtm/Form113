@@ -463,6 +463,10 @@
       <Project>{f1e494d4-a3c5-420e-b8df-418fe85687e6}</Project>
       <Name>DataLayer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Form113TestUnit\Form113TestUnit.csproj">
+      <Project>{9d818661-a31f-4b98-8eb4-bf832e5f84dc}</Project>
+      <Name>Form113TestUnit</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Scripts\Search\css\" />
