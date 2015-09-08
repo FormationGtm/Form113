@@ -234,6 +234,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Scripts\NewsLetter\EmailTemplate.htm" />
+    <Content Include="Areas\Admin\Scripts\Produit\Date.js" />
     <Content Include="Areas\Admin\Scripts\Satistique\css\Satistique.css" />
     <Content Include="Areas\Admin\Scripts\Satistique\js\Statistique.js" />
     <Content Include="Content\bootstrap-theme.css" />

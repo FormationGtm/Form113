@@ -85,6 +85,7 @@
 /// <reference path="../plugins/datepicker/locales/bootstrap-datepicker.zh-cn.js" />
 /// <reference path="../plugins/datepicker/locales/bootstrap-datepicker.zh-tw.js" />
 /// <reference path="../areas/admin/scripts/satistique/js/statistique.js" />
+/// <reference path="../areas/admin/scripts/produit/date.js" />
 <<<<<<< HEAD
 /// <reference path="inscription/register.js" />
 =======

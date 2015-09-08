@@ -74,16 +74,19 @@ namespace Form113.Areas.Admin.Controllers
                 db.SaveChanges();
                 if (!(file.Count() == 0))
                 {
-                    for (int i = 0; i < file.Count(); i++)
+                    if (file[0] != null)
                     {
-                        var fileName = Path.GetFileName(file[i].FileName);
-                        var path = Path.Combine(Server.MapPath("~/Uploads/"), fileName);
-                        file[i].SaveAs(path);                           
-                        var photo = new DataLayer.Models.Photos();
-                        photo.IdProduit = produits.IdProduit;
-                        photo.PhotoName = fileName.ToString();
-                        db.Photos.Add(photo);
-                        db.SaveChanges();
+                        for (int i = 0; i < file.Count(); i++)
+                        {
+                            var fileName = Path.GetFileName(file[i].FileName);
+                            var path = Path.Combine(Server.MapPath("~/Uploads/"), fileName);
+                            file[i].SaveAs(path);
+                            var photo = new DataLayer.Models.Photos();
+                            photo.IdProduit = produits.IdProduit;
+                            photo.PhotoName = fileName.ToString();
+                            db.Photos.Add(photo);
+                            db.SaveChanges();
+                        }
                     }
                 }
                 return RedirectToAction("Index");
