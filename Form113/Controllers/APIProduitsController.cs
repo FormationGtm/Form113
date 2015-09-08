@@ -19,9 +19,23 @@ namespace Form113.Controllers
         private BestArtEntities db = new BestArtEntities();
 
         // GET: api/APIProduits
-        public IQueryable<Produits> GetProduits()
+        //public IQueryable<Produits> GetProduits()
+        public IHttpActionResult GetProduits()
         {
-            return db.Produits;
+            var produits = db.Produits.Where(p=>p.Promotion!=1).Take(3);
+            if (produits == null)
+            {
+                return NotFound();
+            }
+            List < ProduitsAPI > res= new List<ProduitsAPI>();
+            foreach (Produits prod in produits)
+            {
+                res.Add(new ProduitsAPI(prod));
+            }
+            var xmlSerializer = new XmlSerializer(typeof(List<ProduitsAPI>));    
+            var writer = new StringWriter();
+            xmlSerializer.Serialize(writer, res);
+            return Ok(writer.ToString());
         }
 
         // GET: api/APIProduits/5
