@@ -32,10 +32,7 @@ namespace Form113.Controllers
             {
                 res.Add(new ProduitsAPI(prod));
             }
-            var xmlSerializer = new XmlSerializer(typeof(List<ProduitsAPI>));    
-            var writer = new StringWriter();
-            xmlSerializer.Serialize(writer, res);
-            return Ok(writer.ToString());
+            return Ok(res);
         }
 
         // GET: api/APIProduits/5
@@ -47,11 +44,12 @@ namespace Form113.Controllers
             {
                 return NotFound();
             }
-            ProduitsAPI produit = new ProduitsAPI(produits);
-            var xmlSerializer = new XmlSerializer(typeof(ProduitsAPI));
-            var writer = new StringWriter();
-            xmlSerializer.Serialize(writer, produit);
-            return Ok(writer.ToString());
+            var pa = new ProduitsAPI(produits);
+            //ProduitsAPI produit = new ProduitsAPI(produits);
+            //var xmlSerializer = new XmlSerializer(typeof(ProduitsAPI));
+            //var writer = new StringWriter();
+            //xmlSerializer.Serialize(writer, produit);
+            return Ok(pa);
         }
 
         protected override void Dispose(bool disposing)

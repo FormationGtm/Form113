@@ -8,20 +8,23 @@ namespace Form113
 {
     public class ProduitsAPI
     {
-        public string Nom { get; set; }
+        public string Titre { get; set; }
         public string Description { get; set; }
-        public int Prix { get; set; }
-        public string Pays { get; set; }
-        public string Photo { get; set; }
+        public string Prix { get; set; }
+        public string Localisation { get; set; }
+        public string Image { get; set; }
+        public string url { get; set; }
+
         public ProduitsAPI(Produits prod)
         {
-            Nom = prod.Nom;
+            Titre = prod.Nom;
             Description = prod.Description;
-            Prix = prod.Prix;
-            Pays = prod.Pays.Name;
-            Photo = "Uploads/"+prod.Photos.First().PhotoName;
-
+            Prix = prod.Prix.ToString();
+            Localisation = prod.Pays.Name;
+            Image = "/Uploads/" + prod.Photos.First().PhotoName;
+            url ="http://Form113.dlucazeau.fr/Produit/Detail/"+ prod.IdProduit;
         }
+
         public ProduitsAPI() { }
     }
 }
