@@ -79,11 +79,14 @@ table {
 .CategorieAffichage {
     height: 200px;
 }
-SousCategorieAffichage
+.SousCategorieAffichage
 {    
     height: 200px;
 }
 
+.CategorieAffichageImage {
+    height: 100px;
+}
 .CategorieAffichageImage {
     height: 100px;
 }

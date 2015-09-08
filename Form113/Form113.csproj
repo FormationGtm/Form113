@@ -66,7 +66,7 @@
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Http.Owin">
-      <HintPath>..\..\..\..\Desktop\BestCars_yoann\WebApi1\WebApi1\WebApi1\bin\System.Web.Http.Owin.dll</HintPath>
+      <HintPath>..\..\..\dr3js\APIWEB\WebApi1\WebApi1\WebApi1\bin\System.Web.Http.Owin.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
