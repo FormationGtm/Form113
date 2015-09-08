@@ -22,12 +22,15 @@ namespace Form113.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Index(newsLetterViewModel letter)
         {
-            var utilisateur = db.AspNetUsers.ToList();
+            var utilisateur = db.Identites.ToList();
             // Envoi du mail a tout le monde :
             foreach (var item in utilisateur)
             {
-                string body = PopulateBody(item.UserName, letter.Title, "www.bestArt.com", letter.Description);
-                SendHtmlFormattedEmail( item.Email,"NewsLetter BestArt", body);
+                if (item.Newsletter == 1)
+                {
+                    string body = PopulateBody(item.Nom, letter.Title, "www.bestArt.com", letter.Description, item.IdIdentite);
+                    SendHtmlFormattedEmail(item.Email, "NewsLetter BestArt", body);
+                }
             }
             return View();
         }
@@ -36,7 +39,7 @@ namespace Form113.Areas.Admin.Controllers
 
             return View("Index", letter);
         }
-       
+
         /// <summary>
         /// Remplissage de la newsletter en fonction du nom d'utilisateur du titre et de l'url donné ainsi que de la description. 
         /// </summary>
@@ -45,7 +48,7 @@ namespace Form113.Areas.Admin.Controllers
         /// <param name="url"></param>
         /// <param name="description"></param>
         /// <returns></returns>
-        private string PopulateBody(string userName,string title, string url, string description)
+        private string PopulateBody(string userName, string title, string url, string description, int idUser)
         {
             string body = string.Empty;
             using (StreamReader reader = new StreamReader(Server.MapPath("~/Areas/Admin/Scripts/NewsLetter/EmailTemplate.htm")))
@@ -56,6 +59,7 @@ namespace Form113.Areas.Admin.Controllers
             body = body.Replace("{Title}", title);
             body = body.Replace("{Url}", url);
             body = body.Replace("{Description}", description);
+            body = body.Replace("{id}", idUser.ToString());
             return body;
         }
 
@@ -88,5 +92,5 @@ namespace Form113.Areas.Admin.Controllers
             }
         }
     }
-    
+
 }
