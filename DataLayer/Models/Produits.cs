@@ -41,5 +41,7 @@ namespace DataLayer.Models
         public virtual SousCategories SousCategories { get; set; }
         public virtual ICollection<Commentaire> Commentaire { get; set; }
         public virtual ICollection<Visibiliter> Visibiliter { get; set; }
+
+        
     }
 }
