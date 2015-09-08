@@ -1,7 +1,7 @@
 ﻿@model List<int>
 
-<div class="panel panel-danger">
-    <div class="panel-heading">
+<div class="panel alert">
+    <div class="heading">
         @if(Model.Count()>1){<strong>Promotions du moment !!</strong>
         }
         else
@@ -10,7 +10,7 @@
         }
         
     </div>
-    <div class="panel-body">
+    <div class="content">
 
         @*Pour chaque produit à afficher (3 maximum) on appelle la vue partielle correspondante.*@
         @if (Model != null) {

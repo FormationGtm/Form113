@@ -83,3 +83,143 @@ table {
 .CategorieAffichageImage {
     height: 100px;
 }
+
+
+/*****************************/
+
+.panel {
+    display: block;
+    position: relative;
+    background-color: #ffffff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+    .panel > .heading,
+    .panel > .content {
+        display: block;
+        position: relative;
+        color: #1d1d1d;
+        border-top: 1px solid transparent;
+        border-top-right-radius: 3px;
+        border-top-left-radius: 3px;
+        border-bottom: 1px solid transparent;
+        border-bottom-right-radius: 3px;
+        border-bottom-left-radius: 3px;
+    }
+
+    .panel > .heading {
+        padding: .625rem 0;
+        color: #337ab7;
+        background-color: #b3fffa;
+        cursor: default;
+        vertical-align: middle;
+        z-index: 2;
+        text-align: center;
+        /*height: 2.625rem;*/
+        box-shadow: -1px 6px 6px -6px rgba(0, 0, 0, 0.35);
+        font: 500 "Segoe UI", "Open Sans", sans-serif, serif;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+        .panel > .heading > .title {
+            margin-left: .625rem;
+        }
+
+        .panel > .heading > .icon + .title {
+            margin-left: 3.625rem;
+        }
+
+        .panel > .heading > .icon {
+            position: absolute;
+            background-color: #1b6eae;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            vertical-align: middle;
+            /*height: 2.625rem;*/
+            /*width: 2.625rem;*/
+            text-align: center;
+            padding: .625rem;
+        }
+
+    .panel > .content {
+        padding: .625rem;
+        background-color: #fff;
+        border: 1px solid transparent;
+        z-index: 1;
+        /*font-size: 0.875rem;*/
+    }
+
+    .panel.collapsible > .heading {
+        cursor: pointer;
+    }
+
+        .panel.collapsible > .heading:before {
+            content: "\2212";
+            display: block;
+            position: absolute;
+            top: 50%;
+            margin-top: -1.3rem;
+            right: .625rem;
+            color: inherit;
+            vertical-align: middle;
+            /*font-size: 2rem;*/
+        }
+
+    .panel.collapsed > .heading:before {
+        content: "\002b";
+    }
+
+    .panel.collapsed > .content {
+        display: none;
+    }
+
+    .panel.alert > .heading,
+    .panel.error > .heading,
+    .panel.danger > .heading {
+        background-color: #ebccd1;
+        border-color: #ebccd1;
+        color: #a94442;
+    }
+
+    .panel.alert > .content,
+    .panel.error > .content,
+    .panel.danger > .content {
+        border-color: #ebccd1;
+    }
+
+    .panel.warning > .heading {
+        background-color: #faebcc;
+        border-color: #faebcc;
+        color: #fcf8e3;
+    }
+
+    .panel.warning > .content {
+        border-color: #faebcc;
+    }
+
+    .panel.success > .heading {
+        background-color: #d6e9c6;
+        border-color: #d6e9c6;
+        color: #3c763d;
+    }
+
+    .panel.success > .content {
+        border-color: #d6e9c6;
+    }
+
+    .panel.Promo > .heading {
+        background-color: #f0f0f0;
+        border-color: #f0f0f0;
+        color: #000;
+    }
+
+    .panel.Promo > .content {
+        border-color: #f0f0f0;
+    }
