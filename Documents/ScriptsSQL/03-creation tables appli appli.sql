@@ -306,11 +306,11 @@ CREATE TABLE [dbo].[Visibiliter](
 
 GO
 insert StatusCommande (IdStatusCommande,StatusCommande)
-values (1,'Commandé')
+values (1,'Payée')
 insert StatusCommande (IdStatusCommande,StatusCommande)
-values (2,'Envoyé')
+values (2,'Envoyée')
 insert StatusCommande (IdStatusCommande,StatusCommande)
-values (3,'Reçu')
+values (3,'Reçue')
 
 GO
 INSERT INTO [dbo].[Adresses] ([Ligne1],[Ligne2],[Ligne3],[CodePostal],[CodeINSEE])

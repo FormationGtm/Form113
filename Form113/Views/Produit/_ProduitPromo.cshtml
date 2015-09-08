@@ -8,7 +8,12 @@
     <div class="content">
         <a href="../Produit/Detail/@Model.IdProduit" class=" fill-div">
             <div class="Product">
-                @Html.MyCarousel(@Model.Photos.ToList(), @Model.IdProduit)
+                @if (@Model.Photos.Count != 0)
+                {
+                    <a href="/Produit/Detail/@Model.IdProduit" class="fill-div">
+                        <div id="CategorieImg" class="MonAffichageImage">@Html.ImageHelp(Model.Photos.FirstOrDefault().PhotoName)</div>
+                    </a>
+                }
                 Provenance : @Model.Pays.Name
                 Prix Original : @Model.Prix
                 Prix avec réduction : @(Model.Prix * Model.Promotion)
