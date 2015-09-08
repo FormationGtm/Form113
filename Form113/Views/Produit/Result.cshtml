@@ -7,11 +7,9 @@
     ViewBag.Title = "Result";
 }
 
-<h2>Liste des produits de votre recherche</h2>
-
 @using (Html.BeginForm("Compare", "Produit"))
 {
-    using (Html.MyFieldsetHelper("Liste des Produits selon la recherche"))
+    using (Html.MyFieldsetHelper("Liste des produits de votre recherche"))
     {
         foreach (var item in (List<DataLayer.Models.Produits>)Model.Result)
         {

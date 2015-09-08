@@ -17,12 +17,18 @@
 </head>
 <body>
     <div>
-        @*@foreach (var scat in @Model)
-            {
-                <div class="col-lg-4">
-                    @Html.Action("SousCategorie", "SousCategorie", new { id = scat })
-                </div>
-            }*@
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <div class="panel panel-success">
+                <div class="panel-heading" style="text-align:center;">@Html.ActionLink("Tous les produits de la catégorie", (string)("ProduitsCategorie/" + @ViewBag.idcat), "Catalogue")</div>
+            </div>
+        </div>
+
+        <div class="col-sm-4"></div>
+
+        <div class="row"></div>
+
+
         <ul class="rig columns-3">
             @foreach (var scat in @Model)
             {
@@ -31,14 +37,6 @@
                 </li>
             }
         </ul>
-        <div class="col-lg-4">
-            <div class="panel">
-                <div class="panel-heading">Toutes les sous catégories de produits</div>
-                <div class="panel-body">
-                    @Html.ActionLink("Voir produits", (string)("ProduitsCategorie/" + @ViewBag.idcat), "Catalogue")
-                </div>
-            </div>
-        </div>
     </div>
 </body>
 </html>

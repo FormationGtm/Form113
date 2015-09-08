@@ -353,15 +353,15 @@ INSERT [dbo].[Categories] ([IdCategorie], [Libelle], [Photo]) VALUES (8, N'Bazar
 SET IDENTITY_INSERT [dbo].[Categories] OFF
 SET IDENTITY_INSERT [dbo].[SousCategories] ON 
 
-INSERT [dbo].[SousCategories] ([IdSousCategorie], [Nom], [IdCategorie], [Photo]) VALUES (1, N'Services à thé                ', 1, NULL)
-INSERT [dbo].[SousCategories] ([IdSousCategorie], [Nom], [IdCategorie], [Photo]) VALUES (2, N'Plateaux                      ', 1, NULL)
-INSERT [dbo].[SousCategories] ([IdSousCategorie], [Nom], [IdCategorie], [Photo]) VALUES (3, N'Plats                         ', 1, NULL)
-INSERT [dbo].[SousCategories] ([IdSousCategorie], [Nom], [IdCategorie], [Photo]) VALUES (4, N'Bols et tasses                ', 1, NULL)
-INSERT [dbo].[SousCategories] ([IdSousCategorie], [Nom], [IdCategorie], [Photo]) VALUES (5, N'Verres                        ', 1, NULL)
-INSERT [dbo].[SousCategories] ([IdSousCategorie], [Nom], [IdCategorie], [Photo]) VALUES (6, N'Assiettes                     ', 1, NULL)
-INSERT [dbo].[SousCategories] ([IdSousCategorie], [Nom], [IdCategorie], [Photo]) VALUES (7, N'Couvert                       ', 1, NULL)
-INSERT [dbo].[SousCategories] ([IdSousCategorie], [Nom], [IdCategorie], [Photo]) VALUES (8, N'Linge de table                ', 1, NULL)
-INSERT [dbo].[SousCategories] ([IdSousCategorie], [Nom], [IdCategorie], [Photo]) VALUES (9, N'Accessoires                   ', 1, NULL)
+INSERT [dbo].[SousCategories] ([IdSousCategorie], [Nom], [IdCategorie], [Photo]) VALUES (1, N'Services à thé                ', 1, 'service-a-the-sevres.jpg')
+INSERT [dbo].[SousCategories] ([IdSousCategorie], [Nom], [IdCategorie], [Photo]) VALUES (2, N'Plateaux                      ', 1, 'ecf-plateaux-room-service-platex-271558_1.jpg')
+INSERT [dbo].[SousCategories] ([IdSousCategorie], [Nom], [IdCategorie], [Photo]) VALUES (3, N'Plats                         ', 1, 'pyrex®-plat-rect-30-x-20-cm.jpg')
+INSERT [dbo].[SousCategories] ([IdSousCategorie], [Nom], [IdCategorie], [Photo]) VALUES (4, N'Bols et tasses                ', 1, 'BolsEttasses.jpg')
+INSERT [dbo].[SousCategories] ([IdSousCategorie], [Nom], [IdCategorie], [Photo]) VALUES (5, N'Verres                        ', 1, 'Verres.jpg')
+INSERT [dbo].[SousCategories] ([IdSousCategorie], [Nom], [IdCategorie], [Photo]) VALUES (6, N'Assiettes                     ', 1, 'Assiettes.jpg')
+INSERT [dbo].[SousCategories] ([IdSousCategorie], [Nom], [IdCategorie], [Photo]) VALUES (7, N'Couvert                       ', 1, 'coffret-couvert-junior-4pie.jpg')
+INSERT [dbo].[SousCategories] ([IdSousCategorie], [Nom], [IdCategorie], [Photo]) VALUES (8, N'Linge de table                ', 1, 'linge-de-maison_w641h478.jpg')
+INSERT [dbo].[SousCategories] ([IdSousCategorie], [Nom], [IdCategorie], [Photo]) VALUES (9, N'Accessoires                   ', 1, 'accessoires-table.jpg')
 INSERT [dbo].[SousCategories] ([IdSousCategorie], [Nom], [IdCategorie], [Photo]) VALUES (10, N'Corbeilles                    ', 2, NULL)
 INSERT [dbo].[SousCategories] ([IdSousCategorie], [Nom], [IdCategorie], [Photo]) VALUES (11, N'Vases                         ', 2, NULL)
 INSERT [dbo].[SousCategories] ([IdSousCategorie], [Nom], [IdCategorie], [Photo]) VALUES (12, N'Boîtes                        ', 2, NULL)
@@ -409,6 +409,7 @@ INSERT [dbo].[Produits] ([IdProduit], [Nom], [Couleur], [Description], [Prix], [
 INSERT [dbo].[Produits] ([IdProduit], [Nom], [Couleur], [Description], [Prix], [IdSousCategorie], [DateMiseEnVente], [Promotion], [MisEnAvant], [CodePays], [Stock], [NbVues]) VALUES (9, N'Théière Aube rouge', N'blanc', N'Théière Aube rouge - Ceramique - Vietnam', 28, 1, GETDATE(), 1, 0, N'VNM', 500, 0)
 INSERT [dbo].[Produits] ([IdProduit], [Nom], [Couleur], [Description], [Prix], [IdSousCategorie], [DateMiseEnVente], [Promotion], [MisEnAvant], [CodePays], [Stock], [NbVues]) VALUES (10, N'Théière Aube rouge', N'blanc', N'Théière Aube rouge - Ceramique - Vietnam', 28, 1, GETDATE(), 1, 0, N'VNM', 500, 0)
 INSERT [dbo].[Produits] ([IdProduit], [Nom], [Couleur], [Description], [Prix], [IdSousCategorie], [DateMiseEnVente], [Promotion], [MisEnAvant], [CodePays], [Stock], [NbVues]) VALUES (11, N'Théière Aube rouge sans image', N'blanc', N'Théière Aube rouge - Ceramique - Vietnam', 28, 1, GETDATE(), 1, 0, N'VNM', 500, 0)
+INSERT [dbo].[Produits] ([IdProduit], [Nom], [Couleur], [Description], [Prix], [IdSousCategorie], [DateMiseEnVente], [Promotion], [MisEnAvant], [CodePays], [Stock], [NbVues]) VALUES (12, N'Vase Ming', N'Bleu', N'Vase Ming', 500, 11, GETDATE(), 1, 0, N'VNM', 500, 0)
 SET IDENTITY_INSERT [dbo].[Produits] OFF
 SET IDENTITY_INSERT [dbo].[Photos] ON 
 
@@ -426,6 +427,7 @@ INSERT [dbo].[Photos] ([PhotoName], [IdProduit], [IdPhoto]) VALUES (N'shuttersto
 INSERT [dbo].[Photos] ([PhotoName], [IdProduit], [IdPhoto]) VALUES (N'shutterstock_136795478.jpg', 10, 12)
 INSERT [dbo].[Photos] ([PhotoName], [IdProduit], [IdPhoto]) VALUES (N'MAI134_3.jpg', 9, 13)
 INSERT [dbo].[Photos] ([PhotoName], [IdProduit], [IdPhoto]) VALUES (N'shutterstock_197353127_6.jpg', 9, 14)
+INSERT [dbo].[Photos] ([PhotoName], [IdProduit], [IdPhoto]) VALUES (N'VassesMing.jpg', 12, 15)
 SET IDENTITY_INSERT [dbo].[Photos] OFF
 
 GO
