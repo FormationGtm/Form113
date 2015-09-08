@@ -89,6 +89,7 @@ namespace Form113.Controllers
             evm.Nom = user.Identites.Nom;
             evm.iddep = db.Villes.Where(v => v.CodeINSEE == user.Adresses.CodeINSEE).First().NumDep;
             evm.Prenom = user.Identites.Prenom;
+            evm.subscribeToNewsletter = user.Identites.Newsletter==0 ? "off" : "on";
             evm.RegionsDepartements = db.RegionsFR.OrderBy(r => r.Nom)
                .ToDictionary(r => r.Nom,
                r => r.Departements.OrderBy(d => d.Nom)

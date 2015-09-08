@@ -171,6 +171,10 @@ namespace Form113.Models
         /// </summary>
         public string iddep { get; set; }
 
+        /// <summary>
+        /// abonnement ou non à la newsletter, un 0 signifie "non abonné" le reste signifie abonnement.
+        /// </summary>
+        public string subscribeToNewsletter { get; set; }
 
         /// <summary>
         /// code insee de la ville

@@ -47,6 +47,15 @@
         </div>
     </div>
     <div class="form-group">
+        <label>Abonnement à la Newsletter </label>
+        @if (Model.subscribeToNewsletter == "on")
+        {
+            <input type="checkbox" name="subscribeToNewsletter" checked="checked">
+        }
+        else
+        {<input type="checkbox" name="subscribeToNewsletter">}
+    </div>
+    <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" value="Enregistrer les modifications" class="btn btn-default" />
         </div>
