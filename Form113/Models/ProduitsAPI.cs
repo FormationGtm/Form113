@@ -21,7 +21,7 @@ namespace Form113
             Description = prod.Description;
             Prix = prod.Prix.ToString();
             Localisation = prod.Pays.Name;
-            Image = "/Uploads/" + prod.Photos.First().PhotoName;
+            Image = "http://Form113.dlucazeau.fr/Uploads/" + prod.Photos.First().PhotoName;
             url ="http://Form113.dlucazeau.fr/Produit/Detail/"+ prod.IdProduit;
         }
 
